@@ -25,9 +25,9 @@ class GildedRose
   end
 
 
-  def update_quality()
+  def update_quality
     @items.each do |item|
-      if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
+      unless aged_brie?(item.name) or backstage_passes?(item.name)
         if item.quality.positive?
           unless sulfuras?(item.name)
             item.quality -= 1
