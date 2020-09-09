@@ -1,5 +1,4 @@
 #!/usr/bin/ruby -w
-
 require './lib/gilded_rose'
 
 puts "OMGHAI!"
