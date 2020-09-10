@@ -27,12 +27,19 @@ class GildedRose
 
   def update_quality
     @items.each do |item|
-      unless aged_brie?(item.name) or backstage_passes?(item.name)
+
+    if aged_brie?(item.name) && quality_below_maximum?(item)
+      p 'it gets here for brie'
+      item.quality += 1
+    else
+
+      unless backstage_passes?(item.name)
         if item.quality.positive?
           unless sulfuras?(item.name)
             item.quality -= 1
           end
         end
+
       else
         if quality_below_maximum?(item)
           item.quality = item.quality + 1
@@ -72,4 +79,5 @@ class GildedRose
       end
     end
   end
+end
 end
